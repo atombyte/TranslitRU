@@ -2,7 +2,8 @@
 
 Schreibe russische Buchstaben mit deinem **deutschen Layout** — Regeln wie
 auf <https://translit.net/> (`yo`/`jo`/`ö` → ё, `shch`/`shh` → щ,
-`ja`/`ya`/`ä` → я, …). Umschalten per Hotkey, Tray-Icon zeigt den Status.
+`je`/`ye`/`ä` → э, `ja`/`ya` → я, …). Umschalten per Hotkey, Tray-Icon
+zeigt den Status.
 
 Anders als die Webseite läuft die Konvertierung **systemweit** in jedem
 Programm (Browser, Word, Notepad, Discord, Spiele …), nicht nur in einem
@@ -77,9 +78,9 @@ a → а   b → б   v/w → в   g → г   d → д   e → е
 ъ  via   #    ##    ''
 ы → y
 ь  via   '
-э  via   je   ye   eh
+э  via   je   ye   eh   ä
 ю  via   yu   ju   ü
-я  via   ya   ja   ä   q
+я  via   ya   ja   q
 ```
 
 Groß-/Kleinschreibung wird übernommen: `Ya` → `Я`, `YA` → `Я`, `Sh` → `Ш`.
