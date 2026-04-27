@@ -31,7 +31,9 @@ inline beim Schreiben statt nach Klick auf "Konvertieren".
 
 ### Variante A — fertiges Setup (empfohlen, keine Vorinstallation nötig)
 
-1. `TranslitRU-Setup.exe` auf Zielrechner kopieren.
+1. `TranslitRU-Setup.exe` aus dem
+   [Releases-Tab](https://github.com/atombyte/TranslitRU/releases/latest)
+   herunterladen.
 2. Doppelklick → Bestätigen → fertig.
 3. Skript läuft sofort, Autostart aktiv, Tray-Icon erscheint.
 
@@ -47,9 +49,23 @@ deinstallieren".
 
 ### Variante C — standalone .exe ohne Installer
 
-`TranslitRU.exe` (kompiliertes Skript, keine AHK-Installation nötig)
-einfach kopieren und starten. Verknüpfung in `shell:startup` für
-Autostart.
+`TranslitRU.exe` aus dem
+[Releases-Tab](https://github.com/atombyte/TranslitRU/releases/latest)
+laden (kompiliertes Skript, keine AHK-Installation nötig). Einfach
+kopieren und starten. Verknüpfung in `shell:startup` für Autostart.
+
+## Selbst bauen
+
+```bash
+# .exe (standalone)
+"%ProgramFiles%\AutoHotkey\Compiler\Ahk2Exe.exe" \
+  /in TranslitRU.ahk /out TranslitRU.exe \
+  /base "%ProgramFiles%\AutoHotkey\v2\AutoHotkey64.exe"
+
+# Setup (selbstextrahierender Installer)
+copy /Y TranslitRU.exe installer\
+"%SystemRoot%\System32\iexpress.exe" /N /Q installer\TranslitRU-Setup.sed
+```
 
 ## Bedienung
 
