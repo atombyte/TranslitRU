@@ -1,4 +1,4 @@
-#Requires AutoHotkey v2.0
+﻿#Requires AutoHotkey v2.0
 #SingleInstance Force
 #Warn All, Off
 
@@ -130,7 +130,7 @@ ProcessChar(latin, upper) {
 
         rusBase := TranslitMap[keyLower]
         firstChar := SubStr(accumLatin, 1, 1)
-        firstUpper := (firstChar != StrLower(firstChar))
+        firstUpper := (firstChar !== StrLower(firstChar))
         rus := firstUpper ? StrUpper(rusBase) : rusBase
 
         bsCount := 0
