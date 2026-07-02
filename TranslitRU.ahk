@@ -4,7 +4,7 @@
 
 ;================================================================
 ;  Translit RU/DE — Russische Eingabe per deutscher Tastatur
-;  Regeln nach translit.net (yo/jo/ö -> ё, shch -> щ usw.)
+;  Regeln: jo/ö -> ё, ja -> я, ju/ü -> ю, ä -> э, shh -> щ usw.
 ;
 ;  Umschalten:  Ctrl+Shift+Space   (oder Tray-Menü)
 ;  Tray-Icon zeigt Status (DE / RU)
@@ -15,25 +15,21 @@ global History := []   ; Eintrag: {latin, russian, ulen}
 
 ;---- Translit-Tabelle (Schluessel klein) ----
 global TranslitMap := Map(
-    "shch","щ",  "sch","щ",  "shh","щ",
-    "yo","ё",    "jo","ё",
-    "ya","я",    "ja","я",
-    "yu","ю",    "ju","ю",
-    "ye","э",    "je","э",   "eh","э",
+    "shh","щ",
+    "jo","ё",
+    "ja","я",
+    "ju","ю",
     "zh","ж",
     "ch","ч",
     "sh","ш",
-    "kh","х",
-    "ts","ц",
-    "''","ъ",    "##","ъ",
     "a","а", "b","б", "c","ц", "d","д", "e","е",
     "f","ф", "g","г", "h","х", "i","и", "j","й",
     "k","к", "l","л", "m","м", "n","н", "o","о",
-    "p","п", "q","я", "r","р", "s","с", "t","т",
+    "p","п", "r","р", "s","с", "t","т",
     "u","у", "v","в", "w","в", "x","х", "y","ы",
     "z","з",
     "'","ь", "#","ъ",
-    "ö","ё", "ü","ю", "ä","э", "ß","щ"
+    "ö","ё", "ü","ю", "ä","э"
 )
 
 ;---- Tray ----
@@ -65,7 +61,6 @@ Hotkey("SC027",  HandleKey.Bind("ö", false))   ; ö
 Hotkey("+SC027", HandleKey.Bind("ö", true))    ; Ö
 Hotkey("SC01A",  HandleKey.Bind("ü", false))   ; ü
 Hotkey("+SC01A", HandleKey.Bind("ü", true))    ; Ü
-Hotkey("SC00C",  HandleKey.Bind("ß", false))   ; ß
 Hotkey("SC02B",  HandleKeySpecial.Bind("#"))   ; #
 Hotkey("+SC02B", HandleKeySpecial.Bind("'"))   ; '
 
@@ -87,8 +82,6 @@ HotIf()  ; Kontext beenden
 HandleKey(latin, shifted, *) {
     caps := GetKeyState("CapsLock", "T")
     upper := (shifted != caps)
-    if (latin = "ß")          ; kein Grossbuchstabe fuer ß
-        upper := false
     ProcessChar(latin, upper)
 }
 
@@ -147,7 +140,7 @@ ProcessChar(latin, upper) {
         return
     }
 
-    ; Fallback (sollte nicht passieren — alle Buchstaben sind in der Map)
+    ; Fallback fuer nicht belegte Tasten (z.B. q) — Zeichen unveraendert senden
     SendText(actualLatin)
     History.Push({latin: actualLatin, russian: actualLatin, ulen: StrLen(actualLatin)})
     ScheduleReset()

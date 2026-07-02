@@ -1,9 +1,8 @@
 # Translit RU/DE — Russische Eingabe per deutscher Tastatur
 
-Schreibe russische Buchstaben mit deinem **deutschen Layout** — Regeln wie
-auf <https://translit.net/> (`yo`/`jo`/`ö` → ё, `shch`/`shh` → щ,
-`je`/`ye`/`ä` → э, `ja`/`ya` → я, …). Umschalten per Hotkey, Tray-Icon
-zeigt den Status.
+Schreibe russische Buchstaben mit deinem **deutschen Layout** —
+Translit-Regeln (`jo`/`ö` → ё, `shh` → щ, `ä` → э, `ja` → я, …).
+Umschalten per Hotkey, Tray-Icon zeigt den Status.
 
 Anders als die Webseite läuft die Konvertierung **systemweit** in jedem
 Programm (Browser, Word, Notepad, Discord, Spiele …), nicht nur in einem
@@ -15,17 +14,17 @@ Textfeld auf der Webseite.
 |---------------------------|------------------------|
 | `privet`                  | `привет`               |
 | `Schastlivogo dnja`       | `Счастливого дня`      |
-| `Joschkin kot` / `Jöschkin kot` | `Ёшкин кот`     |
-| `borsch` / `borshh`       | `борщ`                 |
-| `obyzvat'` / `ob##yzvat#` | `объызвать` / `обьызвать` (mit ##/' usw.) |
+| `Joshkin kot` / `Jöshkin kot` | `Ёшкин кот`       |
+| `borshh`                  | `борщ`                 |
+| `pod#ezd`                 | `подъезд`              |
+| `den'`                    | `день`                 |
 
 ## Funktionsweise
 
 Längster Treffer gewinnt: tippst `s` → erscheint `с`. Tippst dann `h` →
-`с` wird durch `ш` ersetzt. Tippst dann `ch` → `ш ц` wird durch `щ`
-ersetzt (`shch` → щ). Sequenzen werden während des Tippens automatisch
-zu russischen Buchstaben zusammengezogen — wie auf translit.net, aber
-inline beim Schreiben statt nach Klick auf "Konvertieren".
+`с` wird durch `ш` ersetzt. Tippst noch ein `h` → `ш` wird durch `щ`
+ersetzt (`shh` → щ). Sequenzen werden während des Tippens automatisch
+zu russischen Buchstaben zusammengezogen — inline beim Schreiben.
 
 ## Installation
 
@@ -81,33 +80,33 @@ Tray-Icon ändert sich.
 
 ```
 a → а   b → б   v/w → в   g → г   d → д   e → е
-ё  via   yo   jo   ö
+ё  via   jo   ö
 ж  via   zh
-з → з   и → i   й → j     к → k   л → l
+з → z   и → i   й → j     к → k   л → l
 м → m   н → n   о → o   п → p   р → r
 с → s   т → t   у → u   ф → f
-х  via   h   x   kh
-ц  via   c   ts
+х  via   h   x
+ц  via   c
 ч  via   ch
 ш  via   sh
-щ  via   shh   shch   sch   ß
-ъ  via   #    ##    ''
+щ  via   shh
+ъ  via   #
 ы → y
 ь  via   '
-э  via   je   ye   eh   ä
-ю  via   yu   ju   ü
-я  via   ya   ja   q
+э  via   ä
+ю  via   ju   ü
+я  via   ja
 ```
 
-Groß-/Kleinschreibung wird übernommen: `Ya` → `Я`, `YA` → `Я`, `Sh` → `Ш`.
+Groß-/Kleinschreibung wird übernommen: `Ja` → `Я`, `JA` → `Я`, `Sh` → `Ш`.
 
 ### Konfliktauflösung
 
 Längster Treffer gewinnt. Beispiel: tippst du `s`, erscheint sofort `с`.
-Tippst du dann `h`, wird `с` durch `ш` ersetzt. Tippst du danach `ch`,
-wird `ш` + `ц` durch `щ` ersetzt (`shch` → щ).
+Tippst du dann `h`, wird `с` durch `ш` ersetzt. Tippst du noch ein `h`,
+wird `ш` durch `щ` ersetzt (`shh` → щ).
 
-`y` allein → `ы`, aber `ya/ye/yo/yu` → я/э/ё/ю.
+`j` allein → `й`, aber `ja/jo/ju` → я/ё/ю.
 
 ## Anpassen
 
