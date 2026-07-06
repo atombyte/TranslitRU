@@ -1,7 +1,7 @@
 # Translit RU/DE — Russische Eingabe per deutscher Tastatur
 
 Schreibe russische Buchstaben mit deinem **deutschen Layout** —
-Translit-Regeln (`jo`/`ö` → ё, `shh` → щ, `ä` → э, `ja` → я, …).
+Translit-Regeln (`jo`/`ö` → ё, `shh` → щ, `ä` → э, `ja`/`ya` → я, …).
 Umschalten per Hotkey, Tray-Icon zeigt den Status.
 
 Anders als die Webseite läuft die Konvertierung **systemweit** in jedem
@@ -94,8 +94,8 @@ a → а   b → б   v/w → в   g → г   d → д   e → е
 ы → y
 ь  via   '
 э  via   ä
-ю  via   ju   ü
-я  via   ja
+ю  via   ju   ü   yu
+я  via   ja   ya
 ```
 
 Groß-/Kleinschreibung wird übernommen: `Ja` → `Я`, `JA` → `Я`, `Sh` → `Ш`.
@@ -107,6 +107,7 @@ Tippst du dann `h`, wird `с` durch `ш` ersetzt. Tippst du noch ein `h`,
 wird `ш` durch `щ` ersetzt (`shh` → щ).
 
 `j` allein → `й`, aber `ja/jo/ju` → я/ё/ю.
+`y` allein → `ы`, aber `ya/yu` → я/ю.
 
 ## Anpassen
 

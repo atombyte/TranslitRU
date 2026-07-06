@@ -4,7 +4,7 @@
 
 ;================================================================
 ;  Translit RU/DE — Russische Eingabe per deutscher Tastatur
-;  Regeln: jo/ö -> ё, ja -> я, ju/ü -> ю, ä -> э, shh -> щ usw.
+;  Regeln: jo/ö -> ё, ja/ya -> я, ju/ü/yu -> ю, ä -> э, shh -> щ usw.
 ;
 ;  Umschalten:  Ctrl+Shift+Space   (oder Tray-Menü)
 ;  Tray-Icon zeigt Status (DE / RU)
@@ -17,8 +17,8 @@ global History := []   ; Eintrag: {latin, russian, ulen}
 global TranslitMap := Map(
     "shh","щ",
     "jo","ё",
-    "ja","я",
-    "ju","ю",
+    "ja","я",    "ya","я",
+    "ju","ю",    "yu","ю",
     "zh","ж",
     "ch","ч",
     "sh","ш",
